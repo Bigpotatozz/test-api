@@ -15,27 +15,27 @@ import { UpdateTareaDto } from './dto/update-tarea.dto';
 export class TareaController {
   constructor(private readonly tareaService: TareaService) {}
 
-  @Post()
+  @Post('/addTask')
   create(@Body() createTareaDto: CreateTareaDto) {
     return this.tareaService.create(createTareaDto);
   }
 
-  @Get()
+  @Get('/')
   findAll() {
     return this.tareaService.findAll();
   }
 
-  @Get(':id')
+  @Get('/:id')
   findOne(@Param('id') id: string) {
     return this.tareaService.findOne(+id);
   }
 
-  @Patch(':id')
+  @Patch('/complete/:id')
   update(@Param('id') id: string, @Body() updateTareaDto: UpdateTareaDto) {
     return this.tareaService.update(+id, updateTareaDto);
   }
 
-  @Delete(':id')
+  @Delete('/delete/:id')
   remove(@Param('id') id: string) {
     return this.tareaService.remove(+id);
   }
