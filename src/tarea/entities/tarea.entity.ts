@@ -27,6 +27,7 @@ export class Tarea extends Model {
   fecha: Date;
   @Column({
     type: DataTypes.BOOLEAN,
+    defaultValue: false,
   })
   estado: boolean;
 }
